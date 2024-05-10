@@ -1,0 +1,108 @@
+:root {
+  --blue-rgb: 33 150 243;
+  --primary-rgb: var(--blue-rgb);
+}
+
+body {
+  background-color: black;
+}
+
+.screen {
+  width: 500px;
+  border: 3px solid rgb(var(--primary-rgb) / 80%);
+  aspect-ratio: 10/16;
+  border-radius: 1rem;
+  background-color: rgb(var(--primary-rgb) / 15%);
+  overflow: hidden;
+  position: relative;
+}
+
+@keyframes pan-image {  
+  0% {
+    background-position: 36% 42%;
+    background-size: 200%;
+  }
+  
+  20% {
+    background-position: 30% 35%;
+    background-size: 200%;
+  }
+  
+  20.0001% { /* -- View 2 -- */
+    background-position: 60% 85%;
+    background-size: 500%;
+  }
+  
+  40% {
+    background-position: 49% 81%;
+    background-size: 500%;
+  }
+  
+  40.0001% { /* -- View 3 -- */
+    background-position: 80% 42%;
+    background-size: 300%;
+  }
+  
+  60% {
+    background-position: 84% 33%;
+    background-size: 300%;
+  }
+  
+  60.0001% { /* -- View 4 -- */
+    background-position: 0% 0%;
+    background-size: 300%;
+  }
+  
+  80% {
+    background-position: 15% 4%;
+    background-size: 300%;
+  }
+  
+  80.0001% { /* -- View 5 -- */
+    background-position: 80% 10%;
+    background-size: 300%;
+  }
+  
+  100% {
+    background-position: 72% 14%;
+    background-size: 300%;
+  }
+}
+
+.screen > .screen-image {
+  position: absolute;
+  background-image: url("https://images.unsplash.com/photo-1515266591878-f93e32bc5937?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  height: 100%;
+  width: 100%;
+  background-size: 300%;
+  filter: sepia(100%) hue-rotate(160deg);
+  opacity: 0.6;
+  animation: pan-image 15s linear infinite
+}
+
+@keyframes pan-overlay {
+  from {
+    background-position: 0% 0%;
+  }
+
+  to {
+    background-position: 0% -100%;
+  }
+}
+
+.screen-overlay {
+  position: absolute;
+  z-index: 2;
+  left: 0px;
+  top: 0px;
+  background: linear-gradient(
+    rgb(var(--primary-rgb) / 0.15),
+    rgb(var(--primary-rgb) / 0.15) 3px,
+    transparent 3px,
+    transparent 9px
+  );
+  height: 100%;
+  width: 100%;
+  background-size: 100% 9px;
+  animation: pan-overlay 22s infinite linear;
+}
