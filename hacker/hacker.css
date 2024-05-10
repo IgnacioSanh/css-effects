@@ -1,0 +1,10 @@
+body {
+	background-color: black;
+}
+
+h1 {
+	text-transform: uppercase;
+	font-size: 5rem;
+	color: white;
+	font-family: "Space Mono", monospace;
+}
